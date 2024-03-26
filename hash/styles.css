@@ -1,39 +1,138 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #6dd5ed;
+  background: linear-gradient(to bottom, #6dd5ed, #2193b0);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 500px;
+  background: #fff;
+  background: linear-gradient(to bottom, #ffffff, #f6f6f6);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease both;
+  padding: 40px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  h1 {
-    text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-container,
+.output-container {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #007bff;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#savedHashes {
+  margin-top: 20px;
+}
+
+#savedHashes div {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#downloadHashesBtn {
+  background: #28a745;
+}
+
+#downloadHashesBtn:hover {
+  background: #218838;
+}
+
+#resetBtn {
+  background: #dc3545;
+}
+
+#resetBtn:hover {
+  background: #c82333;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  bottom: 0;
+  left: 0;
+  background: url('https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css') repeat-x bottom;
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform-origin: center bottom;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(10px);
   }
-  
-  .input-container,
-  .output-container {
-    margin-bottom: 20px;
+  50% {
+    transform: translateX(-50%) translateY(5px);
   }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
+  100% {
+    transform: translateX(-100%) translateY(10px);
   }
-  
-  textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-  }
-  
-  .output-container textarea {
-    background-color: #f9f9f9;
-  }
-  
-  
+}
