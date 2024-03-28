@@ -1,7 +1,6 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #6dd5ed;
-  background: linear-gradient(to bottom, #6dd5ed, #2193b0);
+  background: linear-gradient(135deg, #2980b9, #2c3e50);
   margin: 0;
   padding: 20px;
   display: flex;
@@ -62,7 +61,7 @@ textarea {
 }
 
 textarea:focus {
-  border-color: #007bff;
+  border-color: #3498db;
 }
 
 button {
@@ -72,7 +71,7 @@ button {
   margin-top: 15px;
   border: none;
   border-radius: 8px;
-  background: #007bff;
+  background: #3498db;
   color: #fff;
   font-size: 18px;
   cursor: pointer;
@@ -81,7 +80,7 @@ button {
 }
 
 button:hover {
-  background: #0056b3;
+  background: #2980b9;
 }
 
 #savedHashes {
@@ -90,26 +89,26 @@ button:hover {
 
 #savedHashes div {
   padding: 12px;
-  background: #f8f9fa;
+  background: #ecf0f1;
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 #downloadHashesBtn {
-  background: #28a745;
+  background: #27ae60;
 }
 
 #downloadHashesBtn:hover {
-  background: #218838;
+  background: #219d55;
 }
 
 #resetBtn {
-  background: #dc3545;
+  background: #e74c3c;
 }
 
 #resetBtn:hover {
-  background: #c82333;
+  background: #c0392b;
 }
 
 .wave {
