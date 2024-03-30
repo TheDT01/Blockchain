@@ -9,25 +9,20 @@ class Block {
         this.nonce = 0;
     }
 
-
     mineBlock(difficulty) {
         while (
-            this.hash.substring(0,difficulty) !== Array(difficulty + 1).join("0")
+            this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")
         ) {
             this.nonce++;
             this.hash = this.calculateHash();
         }
-        console.log("Minig Done " + this.hash);
+        console.log("Mining Done " + this.hash);
     }
 
     calculateHash() {
-        return sha256(this.timestamp + JSON.stringify(this.data) + this.previoushash).toString();
-        // toString() is added to convert the hash object to a string
+        return sha256(this.timestamp + JSON.stringify(this.data) + this.previoushash + this.nonce).toString();
     }
 }
-
-
-
 
 class Blockchain {
     constructor() {
@@ -36,10 +31,10 @@ class Blockchain {
     }
 
     generateGenesisBlock() {
-        return new Block("2024-04-26", "Genesis", "0000")
-
+        return new Block("2024-04-26", "Genesis", "0000");
     }
-    getLatestBlock () {
+
+    getLatestBlock() {
         return this.chain[this.chain.length - 1];
     }
 
@@ -54,15 +49,17 @@ class Blockchain {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];
 
-        if (currentBlock.previoushash !== currentBlock.calculateHash()) {
-            return false;
+            if (currentBlock.previoushash !== previousBlock.hash) {
+                return false;
+            }
+
+            if (currentBlock.calculateHash() !== currentBlock.hash) {
+                return false;
+            }
         }
-    }
-    return true;
+        return true;
     }
 }
-
-
 
 const dtcoin = new Blockchain();
 const block1 = new Block("2024-04-26", { amount: 5 });
@@ -70,4 +67,5 @@ dtcoin.addBlock(block1);
 const block2 = new Block("2024-04-22", { amount: 10 });
 dtcoin.addBlock(block2);
 
-console.log(dtcoin);
+console.log("Is Blockchain Valid?", dtcoin.isBlockchainValid());
+console.log("Blockchain:", dtcoin);
